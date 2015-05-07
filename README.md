@@ -36,11 +36,11 @@ In order to accept real payments via PaySbuy, you will need to configure your Pa
 ### Known Issues
 PaySbuy itself has some quirks that developers should be aware of:
 
-    * Their docs and support don't always match up with the API's actual functionality. You will have to experiment
+  * Their docs and support don't always match up with the API's actual functionality. You will have to experiment
 
-    * Their API sometimes dumps the user into an ASP.NET stack trace instead of providing error messages. Not sure if this is only on the demo server or on the production server as well.
+  * Their API sometimes dumps the user into an ASP.NET stack trace instead of providing error messages. Not sure if this is only on the demo server or on the production server as well.
 
-    * I remember having a heck of a time getting credit cards to work due to some difference between the demo server and the production server. I can't remember what it was, but just be aware that there may be some issues there.
+  * I remember having a heck of a time getting credit cards to work due to some difference between the demo server and the production server. I can't remember what it was, but just be aware that there may be some issues there.
 
 ## Contributing
 If you'd like to contribute to the the Satchmo Project please go to the official repository at https://bitbucket.org/chris1610/satchmo and read their instructions for contributing.
@@ -48,10 +48,12 @@ If you'd like to contribute to the the Satchmo Project please go to the official
 If you'd like to improve this module directly, feel free to fork and submit a pull request with your changes. Here are some basic guidelines for coding style of you want to contribute to this module:
 
   * Please make sure that your code is consistent with PEP8. See https://www.python.org/dev/peps/pep-0008/ for details.
-  Naming conventions:
+  
+  * Naming conventions:
+    
     1. all_functions_methods_and_local_vars_will_be_named_like_this
-      2. ALL_EXTRA_GLOBALS_WILL_BE_LIKE_THIS
-      3. all local variables that = request.POST[something] will start with psb_front_ or psb_back
+    2. ALL_EXTRA_GLOBALS_WILL_BE_LIKE_THIS
+    3. all local variables that = request.POST[something] will start with psb_front_ or psb_back
  
 ### To Do
 I would like to add functionality to easily change which version of the PaySbuy API this module is trying to communicate with, just in case PaySbuy changes their API.
