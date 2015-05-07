@@ -1,0 +1,54 @@
+{% extends "shop/checkout/base_confirm.html" %}
+{% load i18n %}
+{% load satchmo_util %}
+{% load smart_if %}
+{# this is the Paysbuy confirm template #}
+
+{% block payment_step %}<a href="{% url PAYSBUY_satchmo_checkout-step2 %}">{% trans "Payment" %}</a>{% endblock %}
+
+{% block payment_display %}
+<h4>{% trans "Payment" %}</h4>
+{% if not PAYMENT_LIVE %}<b>PAYMENT TEST MODE</b><br/>{% endif %}
+{% trans "Your payment will be processed through Paysbuy." %}
+{% endblock %}
+
+{% block payment_form %}
+{% if order.paid_in_full %}
+<form action="{% url PAYSBUY_satchmo_checkout_free-confirm %}">
+    <input type="submit" value="{% trans "Purchase Items" %}" />
+</form>
+{% else %}
+<form action="{{ post_url }}?{{ default_pay_method }}=true&lang={{ lang }}" method="post"> {% csrf_token %}
+<input type="hidden"  name="psb" value="{{ psb }}" />
+<input type="hidden"  name="biz" value="{{ biz }}" />
+<input type="hidden"  name="currencyCode" value="{{ currencyCode }}" />
+<input type="hidden"  name="postURL" value="{{ postURL }}" />
+<input type="hidden"  name="reqURL" value="{{ reqURL }}" />
+<input type="hidden" name="inv" value="{{ invoice }}" />
+<input type="hidden" name="itm" value="{{ itm }}" />
+<input type="hidden" name="amt" value="{{ amount|floatformat:"2" }}" />
+<input type="hidden" name="paypal_amt" value="{{ paypal }}" />
+<input type="hidden" name="com" value="{{ commission }}" />
+<input type="hidden" name="method" value="2" />
+<input type="hidden" name="language" value="{{ lang }}" />
+<input type="hidden" name="opt_fix_redirect" value="{{ opt_fix_redirect }}" />
+<input type="hidden" name="opt_fix_method" value="{{ opt_fix_method }}" />
+<input type="hidden" name="opt_name" value="{{ opt_name }}" />
+<input type="hidden" name="opt_email" value="{{ opt_email }}" />
+<input type="hidden" name="opt_mobile" value="{{ opt_mobile }}" />
+<input type="hidden" name="opt_address" value="{{ opt_address }}" />
+<input type="hidden" name="opt_detail" value="{{ opt_detail }}" />
+
+<!-- Future Proofing for manual v3.04 -->
+<input type="hidden" name="PSBID" value="{{ psb }}" />
+<input type="hidden" name="Username" value="{{ biz }}" />
+<input type="hidden" name="secureCode" value="{{ secure_code }}" />
+<input type="hidden" name="curr_type" value="TH" />
+<input type="hidden" name="resp_front_url" value="{{ postURL }}" />
+<input type="hidden" name="resp_back_url" value="{{ reqURL }} " />
+
+<!-- Bombs Away -->
+<input type="submit" value="{% trans "Purchase Items" %}" />
+</form>
+{% endif %}
+{% endblock %}
