@@ -5,7 +5,7 @@ It is a custom payment module for use with Satchmo Project. It functions as midd
 
 This module is not part of the official satchmo repository. If you want to use this payment module you will have to follow the installation instructions below.
 
-PaySbuy is an online payment gateway operated in Thailand and is currently the only online payment gateway(as far as I know) that accepts transfers to and from Thai banking institutions. From their website: "PAYSBUY is an online payment service that allows sending money as easy as sending email. Members can instantly and securely send money to anyone with an email address and a bank account in Thailand."
+PaySbuy is an online payment gateway operated in Thailand and is currently ~~the only online payment gateway(as far as I know)~~ one of <a href="http://techcrunch.com/2015/05/05/omise-2-6-million-series-a-southeast-asia/">a handful of payment gateways that accept transfers to and from Thai banking institutions</a>. From their website: "PAYSBUY is an online payment service that allows sending money as easy as sending email. Members can instantly and securely send money to anyone with an email address and a bank account in Thailand."
 
 ##### This software may be outdated. It was last tested in 2013 on Satchmo-0.9.3 with Paysbuy API v3.01. Also, see known issues below.
 
